@@ -17,7 +17,8 @@ defmodule BounceGsWeb.Router do
   scope "/", BounceGsWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", BounceLive
+    live "/success", BookedLive
   end
 
   # Other scopes may use custom stacks.
