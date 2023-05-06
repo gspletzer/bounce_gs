@@ -1,1 +1,62 @@
-<div><%= @test %></div>
+<div class="booking">
+  <div>
+    <h6 class="text-l font-normal leading-normal mt-3 mb-0 text-black-800">
+      Booking storage at:
+    </h6>
+    <h5 class="text-2xl font-bold leading-normal mt-0 mb-10 text-black-800">
+      Grace's Gourmet Goodies
+    </h5>
+  </div>
+  <div class="bag-count">
+    <h5 class="text-xl font-normal leading-normal mt-0 mb-2 text-black-800">Number of Bags</h5>
+    <%= if @cart.bags == 1 do %>
+      <.button
+        style="background-color: rgb(209, 226, 254);color: rgb(185, 188, 194);"
+        phx-click="subtract_one"
+        disabled
+      >
+        -
+      </.button>
+    <% else %>
+      <.button style="background-color: rgb(99,157,255);color: black;" phx-click="subtract_one">
+        -
+      </.button>
+    <% end %>
+    <h5 class="text-xl font-normal leading-normal mt-0 mb-2 text-black-800">
+      <%= @cart.bags %>
+    </h5>
+    <.button style="background-color: rgb(99,157,255);color: black;" phx-click="add_one">
+      +
+    </.button>
+  </div>
+  <div>
+    <.simple_form for={@form} phx-submit="save">
+      <div class="person">
+        <h5 class="text-xl font-normal leading-normal mt-2 mb-2 text-black-800">
+          Personal Details:
+        </h5>
+        <.input field={@form[:name]} label="Name" />
+        <.input field={@form[:email]} label="Email" />
+        <br />
+      </div>
+      <div class="card">
+        <h5 class="text-xl font-normal leading-normal mt-0 mb-2 text-black-800">
+          Payment Information:
+        </h5>
+        <.input field={@form[:ccn]} label="Card Details" />
+        <br />
+      </div>
+      <:actions>
+        <div>
+          <h6 class="text-xs font-normal leading-normal mt-0 mb-2 text-black-800">
+            <%= @cart.bags %> <%= if @cart.bags > 1, do: "bags", else: "bag" %>
+          </h6>
+          <h5 class="text-2xl font-bold leading-normal mt-0 mb-2 text-black-800">
+            <%= @cart.total %>
+          </h5>
+        </div>
+        <.button style="background-color: rgb(99,157,255);color: black;">Book</.button>
+      </:actions>
+    </.simple_form>
+  </div>
+</div>

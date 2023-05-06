@@ -13,7 +13,7 @@ defmodule BounceGs.Checkout.User do
   def new() do
     user = %__MODULE__{}
     types = %{name: :string, email: :string, ccn: :string}
-    params = %{name: "", email: "hi@yo.com", ccn: ""}
+    params = %{name: "", email: "", ccn: ""}
 
     Ecto.Changeset.cast({user, types}, params, Map.keys(types))
   end
