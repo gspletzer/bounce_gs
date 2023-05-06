@@ -30,20 +30,20 @@
     </.button>
   </div>
   <div>
-    <.simple_form for={@form} phx-submit="save">
+    <.simple_form for={@form} phx-submit="submit">
       <div class="person">
         <h5 class="text-xl font-normal leading-normal mt-2 mb-2 text-black-800">
           Personal Details:
         </h5>
-        <.input field={@form[:name]} label="Name" />
-        <.input field={@form[:email]} label="Email" />
+        <.input field={@form[:name]} label="Name" required />
+        <.input field={@form[:email]} label="Email" required />
         <br />
       </div>
       <div class="card">
         <h5 class="text-xl font-normal leading-normal mt-0 mb-2 text-black-800">
           Payment Information:
         </h5>
-        <.input field={@form[:ccn]} label="Card Details" />
+        <.input field={@form[:ccn]} label="Card Details" pattern="[0-9]{16}" required />
         <br />
       </div>
       <:actions>
@@ -55,7 +55,11 @@
             <%= @cart.total %>
           </h5>
         </div>
-        <.button style="background-color: rgb(99,157,255);color: black;">Book</.button>
+        <%= if @status == "new" do %>
+          <.button style="background-color: rgb(99,157,255);color: black;">Book</.button>
+        <% else %>
+          <.button style="background-color: rgb(245, 75, 34);color: black;">Retry</.button>
+        <% end %>
       </:actions>
     </.simple_form>
   </div>

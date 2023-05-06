@@ -28,4 +28,6 @@ defmodule BounceGs.CheckoutTest do
       assert result == Checkout.update_cart(:subtract_one, cart)
     end
   end
+
+  # TODO: Add mocking behavior to test both success and failed returns in close_cart/3
 end
