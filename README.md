@@ -14,6 +14,7 @@ To create a local copy:
 First time running:
 
 - `mix setup` to install and setup dependencies
+- If you receive and error in server or when running mix_test_interactive similar to: `can't find executable mac_listener`, try the steps noted [here](https://github.com/axelson/scenic_live_reload/issues/5) to resolve the issue. If that doesn't work, then you will need to manually stop and restart server and tests after every saved change. 
 
 To test in browser:
 
