@@ -43,7 +43,7 @@ To run tests:
 
 - If a database was implemented this is approximately the shape I'd consider.
 
-  ![alttext](https://github.com/gspletzer/bounce_gs/assets/images/bounce_gs_database.png)
+  ![alttext](https://github.com/gspletzer/bounce_gs/blob/main/assets/images/bounce_gs_database.png)
 
 ## Additional Information:
 
