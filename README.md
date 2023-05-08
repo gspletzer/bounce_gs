@@ -2,6 +2,8 @@
 
 ## Check it out:
 
+This application is built with Elixir/Phoenix, so it is recommended you have the latest versions of Elixir, Erlang, and Phoenix on your machine, if you plan to contribute.
+
 To create a local copy:
 
 - Clone BounceGs to your machine.
@@ -9,13 +11,13 @@ To create a local copy:
 - Navigate into the directory with
   - `cd bounce_gs`
 
-To start your Phoenix server:
+First time running:
 
-- Run `mix setup` to install and setup dependencies
-- Start Phoenix endpoint with `mix phx.server`
+- `mix setup` to install and setup dependencies
 
 To test in browser:
 
+- Start Phoenix endpoint with `mix phx.server`
 - Visit [`localhost:4000`](http://localhost:4000)
 - Things to try:
   - `Add` and `subtract` bags from the cart
