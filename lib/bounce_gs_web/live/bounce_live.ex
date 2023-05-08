@@ -20,7 +20,9 @@ defmodule BounceGsWeb.BounceLive do
   end
 
   def handle_event("submit", %{"user" => params}, socket) do
-    case BounceGs.close_cart(socket.assigns.form, params, socket.assigns.cart) do
+    result = BounceGs.close_cart(params)
+
+    case result do
       {:ok, status, _user} ->
         {:noreply,
          assign(socket, :status, status)

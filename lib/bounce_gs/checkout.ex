@@ -9,8 +9,11 @@ defmodule BounceGs.Checkout do
   alias BounceGs.Checkout.User
 
   @type cart :: Cart.t()
-  @type user :: User.t()
   @type command :: :add_one | :subtract_one
+  @type params :: map()
+  @type status :: String.t()
+  @type user :: User.t()
+  @type checkout_result :: {:ok, status(), user()} | {:error, status(), user()}
 
   @spec new() :: {cart(), user()}
   def new() do
@@ -26,14 +29,28 @@ defmodule BounceGs.Checkout do
     Cart.subtract_one(cart)
   end
 
-  def close_cart(_form, params, _cart) do
+  @doc """
+  Handles implementing changes to the User struct with information captured in the form,
+  makes the call to the payment processing API, and depending on result, writes transaction
+  status and information to database, then returns :ok or :error with updated changes for socket
+  to the front-end.
+
+  Since I am mocking this behavior, I am not currently passing in the existing form and cart
+  from the socket as I have no need for them in the simulation. However in reality those pieces
+  would also be needed.
+  """
+
+  # @callback close_cart(params()) :: checkout_result // added for Mox
+  @spec close_cart(params()) :: checkout_result()
+  def close_cart(params) do
     user = User.new(params)
 
     # Here we would make a call to payment module to handle external API call to credit card service
     # something like: resp = PaymentApi.submit_payment(auth_token, request)
 
-    # Then log the result to the transactions table via Transactions schema (does not currently exist)
-    # and return tagged tuple to controller with :ok or :error + changed values for socket
+    # Then log the result to the transactions table via Transactions schema (example file available,
+    # but not implemented for this assessment) and return tagged tuple to controller with
+    # :ok or :error + changed values for socket
 
     # something like:
     # case resp do
@@ -45,7 +62,7 @@ defmodule BounceGs.Checkout do
     # Transaction.new(user, cart, status)
     # {:error, status, user}
 
-    # This is "mocking" that behavior:
+    # This is "mocking" the behavior noted above:
     status = Enum.random(["success", "failed"])
 
     case status do
