@@ -51,7 +51,10 @@ defmodule BounceGs.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:mix_test_interactive, "~> 1.0", only: :dev, runtime: false},
-      {:money, "~> 1.12"}
+      {:money, "~> 1.12"},
+      {:typed_ecto_schema, "~> 0.4.1", runtime: false},
+      {:timex, "~> 3.7"},
+      {:mox, "~> 1.0.2", only: :test}
     ]
   end
 

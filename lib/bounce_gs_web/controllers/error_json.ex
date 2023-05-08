@@ -1,4 +1,6 @@
 defmodule BounceGsWeb.ErrorJSON do
+  # NOT UTILIZING ERROR PAGES FOR THIS ASSESSMENT
+
   # If you want to customize a particular status code,
   # you may add your own clauses, such as:
   #

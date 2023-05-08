@@ -1,12 +1,6 @@
 defmodule BounceGsWeb do
   @moduledoc """
-  The entrypoint for defining your web interface, such
-  as controllers, components, channels, and so on.
-
-  This can be used in your application as:
-
-      use BounceGsWeb, :controller
-      use BounceGsWeb, :html
+  The entrypoint for defining BounceGs web interface.
 
   The definitions below will be executed for every controller,
   component, etc, so keep them short and clean, focused

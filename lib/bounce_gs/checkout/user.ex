@@ -1,9 +1,19 @@
 defmodule BounceGs.Checkout.User do
   @moduledoc """
-  This is a core function layer.any()
+  This is a core function layer.
 
-  It will handle generating a Schemaless changeset to utilize
-  Tailwind form for capturing user details in booking.
+  For the purpose of this assessment, it will handle generating
+  a Schemaless changeset to utilize Tailwind form to capture user details
+  during booking.
+
+  In a production level version of this product, I would define a user schema,
+  rather than using a schemaless changeset. This would allow tracking for both
+  verified users and guest users (assuming guests use the same email each time they book).
+  This would also include functionality for updating a user's information.
+
+  I also wouldn't include billing information as part of the user schema in the production
+  version. I envision that living on it's own table with reference to the user_id, or being
+  handled by a third party service like Stripe.
   """
 
   defstruct [:name, :email, :ccn]
@@ -16,8 +26,4 @@ defmodule BounceGs.Checkout.User do
 
     Ecto.Changeset.cast({user, types}, params, Map.keys(types))
   end
-
-  # def update(user, params) do
-  #   Ecto.Changeset.change(user, params)
-  # end
 end

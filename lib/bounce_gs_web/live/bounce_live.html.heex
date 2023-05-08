@@ -10,11 +10,7 @@
   <div class="bag-count">
     <h5 class="text-xl font-normal leading-normal mt-0 mb-2 text-black-800">Number of Bags</h5>
     <%= if @cart.bags == 1 do %>
-      <.button
-        style="background-color: rgb(209, 226, 254);color: rgb(185, 188, 194);"
-        phx-click="subtract_one"
-        disabled
-      >
+      <.button style="background-color: rgb(209, 226, 254);color: rgb(185, 188, 194);" disabled>
         -
       </.button>
     <% else %>
