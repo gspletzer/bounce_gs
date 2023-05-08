@@ -2,6 +2,8 @@ defmodule BounceGsWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
+  # NOT UTILIZING METRICS FOR THIS ASSESSMENT
+
   def start_link(arg) do
     Supervisor.start_link(__MODULE__, arg, name: __MODULE__)
   end

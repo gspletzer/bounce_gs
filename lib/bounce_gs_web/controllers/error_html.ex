@@ -1,5 +1,6 @@
 defmodule BounceGsWeb.ErrorHTML do
   use BounceGsWeb, :html
+  # NOT UTILIZING ERROR PAGES FOR THIS ASSESSMENT
 
   # If you want to customize your error pages,
   # uncomment the embed_templates/1 call below
