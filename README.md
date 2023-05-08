@@ -2,7 +2,7 @@
 
 ## Check it out:
 
-This application is built with Elixir/Phoenix, so it is recommended you have the latest versions of Elixir, Erlang, and Phoenix on your machine, if you plan to contribute.
+This application is built with Elixir/Phoenix.LiveView, so it is recommended you have the latest versions of Elixir, Erlang, and Phoenix on your machine, if you plan to contribute.
 
 To create a local copy:
 
@@ -17,8 +17,8 @@ First time running:
 
 To test in browser:
 
-- Start Phoenix endpoint with `mix phx.server`
-- Visit [`localhost:4000`](http://localhost:4000)
+- Start Phoenix endpoint with `mix phx.server`; the first time you spin will take a bit longer while it compiles.
+- Once `Done` is observed in terminal, visit [`localhost:4000`](http://localhost:4000)
 - Things to try:
   - `Add` and `subtract` bags from the cart
   - Submit cart for checkout
@@ -27,15 +27,16 @@ To test in browser:
     - If `submit` button changes to red and reads `retry` keep clicking until you reach the `/success` view. Values of input field will persist from `submit` to `retry` views. It does not persist after `/success` is reached.
     - If you get `/success` on the first try and wish to try again to attempt a retry response, simply use the back arrow or change path in browser to `localhost:4000`; both options will reset the state of the page to a new, empty cart. You will have to add input values again.
 
-To run tests:
+To run tests in terminal:
 
 - `mix test.interactive` will allow you to run tests and will rerun tests when you save changes. This option also allows you to designate which files to rerun after initial run. You can learn more abou those options by entering `?` in the terminal once `mix test.interactive` is running.
 - `mix test` will run all the tests one time.
+- As is the case with the first run of the server, running tests will take longer the first time. 
 - Currently there are only unit tests running.
 
 ## Keep in Mind:
 
-- This is not a fully developed application. It is missing validation, telemetry, integration + end-to-end testing, database (initialized, but no tables added yet), and a functional payment API.
+- This is not a fully developed application. Among other things, it is missing validation, telemetry, integration + end-to-end testing, database (initialized, but no tables added yet), and a functional payment API.
 
 - Several files contain notes with explanation or TODOs to assist with code readability in underdeveloped features. (Ex. `BounceGs.Checkout` and `BounceGs.CheckoutTest`)
 
